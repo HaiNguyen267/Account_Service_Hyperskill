@@ -1,11 +1,13 @@
 package account.repository;
 
 import account.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-public interface UserRepository {
-    Optional<User> findUserByEmail(String email);
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+    Optional<User> findUserByEmailIgnoreCase(String email);
 
-    void saveUser(User user);
 }
