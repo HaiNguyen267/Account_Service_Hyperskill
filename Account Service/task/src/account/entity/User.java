@@ -11,10 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.*;
 import java.util.Collection;
 import java.util.List;
 
@@ -29,12 +26,16 @@ public class User implements UserDetails {
 
     @NotEmpty
     private String name;
+
     @NotEmpty
     @JsonProperty("lastname")
     private String lastName;
+
     @NotEmpty
     @Pattern(regexp = "[^@]*(@acme.com)$")
     private String email;
+
+    @Size(min = 12, message = "The password length must be at least 12 chars!")
     @NotEmpty
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;

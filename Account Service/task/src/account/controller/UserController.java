@@ -1,6 +1,8 @@
 package account.controller;
 
 import account.dto.LoginCredential;
+import account.dto.Password;
+import account.dto.PasswordChangingResponse;
 import account.entity.User;
 import account.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +28,9 @@ public class UserController {
     }
 
     @PostMapping("/auth/changepass")
-    public ResponseEntity<?> changePass() {
-        return null;
+    public ResponseEntity<PasswordChangingResponse> changePass(@AuthenticationPrincipal User user,@RequestBody Password password) {
+
+        return userService.changePass(user, password);
     }
 
     @GetMapping("/empl/payment")
