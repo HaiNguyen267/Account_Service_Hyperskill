@@ -1,15 +1,18 @@
 package account.dto;
 
-public class PasswordChangingResponse {
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class CustomResponse {
     private String email;
     private String status;
 
-    public PasswordChangingResponse(String email, String status) {
+    public CustomResponse(String email, String status) {
         this.email = email;
         this.status = status;
     }
 
-    public PasswordChangingResponse() {
+    public CustomResponse() {
     }
 
     public String getEmail() {

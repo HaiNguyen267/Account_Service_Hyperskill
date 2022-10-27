@@ -1,18 +1,18 @@
 package account.controller;
 
-import account.dto.LoginCredential;
 import account.dto.Password;
-import account.dto.PasswordChangingResponse;
+import account.dto.PayrollDTO;
+import account.dto.CustomResponse;
+import account.entity.Payroll;
 import account.entity.User;
 import account.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 
 @RestController
@@ -28,24 +28,30 @@ public class UserController {
     }
 
     @PostMapping("/auth/changepass")
-    public ResponseEntity<PasswordChangingResponse> changePass(@AuthenticationPrincipal User user,@RequestBody Password password) {
+    public ResponseEntity<CustomResponse> changePass(@AuthenticationPrincipal User user, @RequestBody Password password) {
 
         return userService.changePass(user, password);
     }
 
     @GetMapping("/empl/payment")
-    public User getEmployeePayroll(@AuthenticationPrincipal User user) {
+    public List<Payroll> getEmployeeAllPayrolls(@AuthenticationPrincipal User user) {
         return userService.getEmployeePayroll(user);
     }
 
-    @PostMapping("/acct/payments")
-    public ResponseEntity<?> uploadPayroll() {
-        return null;
+    @GetMapping("/empl/payment")
+    public Payroll getEmployeePayrollAtPeriod(@AuthenticationPrincipal User user, @RequestParam String period) {
+        return userService.getEmployeePayrollAtPeriod(user, period);
     }
 
+    @PostMapping("/acct/payments")
+    public ResponseEntity<?> uploadPayroll(List<PayrollDTO> payrollList) {
+        return userService.uploadPayroll(payrollList);
+    }
+
+
     @PutMapping("/acct/payments")
-    public ResponseEntity<?> updatePayment() {
-        return null;
+    public ResponseEntity<?> updatePayment(@RequestBody PayrollDTO payrollDTO) {
+        return userService.updatePayroll(payrollDTO);
     }
 
     @PutMapping("/admin/user/role")
