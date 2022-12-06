@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/612593/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: Thu, 27 Oct 2022 22:38:44 UTC
+update_date: "Thu, 27 Oct 2022 22:38:44 UTC"
 stages:
 - id: 1086
   step: 16601
@@ -28,9 +28,9 @@ stages:
   is_completed: false
 topics:
   0:
-  - title: Write, compile, and run
+  - title: "Write, compile, and run"
     theory_id: 3739
-  - title: JVM, JRE, and JDK
+  - title: "JVM, JRE, and JDK"
     theory_id: 3499
   - title: Units of information
     theory_id: 6865
@@ -78,7 +78,7 @@ topics:
     theory_id: 13292
   - title: Handling requests with bodies
     theory_id: 13334
-  - title: Web security, OWASP
+  - title: "Web security, OWASP"
     theory_id: 14755
   - title: Getting started with Spring Security
     theory_id: 13856
