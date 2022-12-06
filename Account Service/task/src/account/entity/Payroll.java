@@ -2,13 +2,7 @@ package account.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import javax.persistence.*;
 
 @Entity
 public class Payroll {
@@ -16,21 +10,51 @@ public class Payroll {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+
+    @JsonIgnore
     private String employeeEmail;
+    private String name;
+    private String lastname;
     private String period;
     private String salary;
 
-    public Payroll(String employeeEmail, String period, String salary) throws ParseException {
+
+
+    public Payroll(String employeeEmail,String name, String lastName, String period, String salary) {
         this.employeeEmail = employeeEmail;
+        this.name = name;
+        this.lastname = lastName;
         this.period = period;
         this.salary = salary;
     }
 
-
-
-
-
     public Payroll() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+
+    public String getEmployeeEmail() {
+        return employeeEmail;
+    }
+
+    public void setEmployeeEmail(String employeeEmail) {
+        this.employeeEmail = employeeEmail;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastName) {
+        this.lastname = lastName;
     }
 
     public long getId() {
@@ -39,14 +63,6 @@ public class Payroll {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getEmployeeEmail() {
-        return employeeEmail;
-    }
-
-    public void setEmployeeEmail(String employeeEmail) {
-        this.employeeEmail = employeeEmail;
     }
 
     public String getPeriod() {

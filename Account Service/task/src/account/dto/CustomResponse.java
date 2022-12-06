@@ -16,7 +16,7 @@ public class CustomResponse {
     }
 
     public String getEmail() {
-        return email.toLowerCase();
+        return email;
     }
 
     public void setEmail(String email) {

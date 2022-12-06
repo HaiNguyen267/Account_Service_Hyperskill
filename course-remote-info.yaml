@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/612593/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: Sat, 15 Oct 2022 09:09:01 UTC
+update_date: Thu, 27 Oct 2022 22:38:44 UTC
 stages:
 - id: 1086
   step: 16601
@@ -16,7 +16,7 @@ stages:
   is_completed: true
 - id: 1089
   step: 16604
-  is_completed: false
+  is_completed: true
 - id: 1090
   step: 16605
   is_completed: false
@@ -257,6 +257,8 @@ topics:
   1:
   - title: H2 database
     theory_id: 8762
+  - title: HTTP Basic Auth
+    theory_id: 7778
   - title: Exception handling
     theory_id: 8780
   - title: Advanced exception handling in Spring Boot
@@ -265,8 +267,6 @@ topics:
     theory_id: 16191
   - title: Getting authenticated user details
     theory_id: 16710
-  - title: HTTP Basic Auth
-    theory_id: 7778
   - title: Introduction to databases
     theory_id: 8497
   - title: XML
